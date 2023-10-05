@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+.title {
+  &__primary {
+    font-size: 2rem;
+    color: $marine-blue;
+    margin-bottom: 1rem;
+  }
+
+  &__secondary {
+    font-weight: $font-regular;
+    color: $cool-gray;
+  }
+}
+
