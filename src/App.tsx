@@ -1,11 +1,11 @@
-import Title from './components/Title';
+import Step from './components/Step';
 
 function App() {
   return (
-    <Title
-      primaryTitle='Personal info'
-      secondaryTitle='Please provide your name, email address, and phone number.'
-    />
+  <>
+    <Step stepNumber='1' stepInfo='Your info' isActive />
+
+  </>    
   );
 }
 
