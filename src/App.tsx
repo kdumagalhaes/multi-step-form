@@ -1,9 +1,9 @@
-import NavigationNext from './components/Navigation/NavigationNext';
+import NavigationBack from './components/Navigation/NavigationBack';
 
 function App() {
   return (
     <>
-      <NavigationNext />
+      <NavigationBack />
     </>
   );
 }

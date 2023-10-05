@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.back {
+  color: $cool-gray;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: $font-medium;
+
+  &:hover {
+    color: $marine-blue;
+  }
+}
