@@ -1,5 +1,12 @@
+import Title from './components/Title';
+
 function App() {
-  return <h2>hello world</h2>;
+  return (
+    <Title
+      primaryTitle='Personal info'
+      secondaryTitle='Please provide your name, email address, and phone number.'
+    />
+  );
 }
 
 export default App;
