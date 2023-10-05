@@ -1,11 +1,10 @@
-import Step from './components/Step';
+import NavigationNext from './components/Navigation/NavigationNext';
 
 function App() {
   return (
-  <>
-    <Step stepNumber='1' stepInfo='Your info' isActive />
-
-  </>    
+    <>
+      <NavigationNext />
+    </>
   );
 }
 
