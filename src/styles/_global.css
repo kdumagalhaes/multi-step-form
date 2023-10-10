@@ -1,3 +1,4 @@
+@import "./_variables.scss";
 /* Reset CSS */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -14,7 +15,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background: transparent;
     font-family: 'Ubuntu', sans-serif;
 }
 
