@@ -14,8 +14,10 @@ function App() {
         </Navigation.Bar> 
       </Container.Left>
       <Container.Right>
-        <Navigation.Back />
-        <Navigation.Next />
+        <Navigation.Buttons>
+          <Navigation.Back />
+          <Navigation.Next />
+        </Navigation.Buttons>
       </Container.Right>
     </Container.Root>
   );
