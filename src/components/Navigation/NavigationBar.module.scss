@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.bar {
+  height: 565px;
+  width: 274px;
+  background-color: rebeccapurple;
+  border-radius: 10px;
+  background-image: url('../../assets/images/bg-sidebar-desktop.svg');
+  padding: 1.8rem;
+  box-sizing: border-box;
+}

@@ -5,12 +5,20 @@
   align-items: center;
   text-transform: uppercase;
   color: $white;
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
   .text-container {
     font-size: 0.8rem;
+    letter-spacing: 1px;
 
     .indication {
       margin-bottom: 5px;
       font-weight: $font-regular;
+      color: $light-gray;
+      font-size: 0.7rem;
     }
 
     .info {
