@@ -1,6 +1,10 @@
-import styles from "./NavigationBack.module.scss"
+import styles from './NavigationBack.module.scss';
 const NavigationBack = () => {
-  return <a className={styles.back} href="#">Go Back</a>
-}
+  return (
+    <a onClick={() => console.info("Go back")} className={styles.back} href='#'>
+      Go Back
+    </a>
+  );
+};
 
-export default NavigationBack
+export default NavigationBack;

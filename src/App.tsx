@@ -1,9 +1,10 @@
-import NavigationBack from './components/Navigation/NavigationBack';
+import { Navigation } from './components/Navigation';
 
 function App() {
   return (
     <>
-      <NavigationBack />
+      <Navigation.Back />
+      <Navigation.Next />
     </>
   );
 }
