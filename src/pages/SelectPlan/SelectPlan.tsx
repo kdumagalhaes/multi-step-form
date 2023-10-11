@@ -1,3 +1,4 @@
+import { Content } from '../../components/Content';
 import Title from '../../components/Title';
 
 const SelectPlan = () => {
@@ -7,7 +8,9 @@ const SelectPlan = () => {
         primaryTitle='Select your plan'
         secondaryTitle='You have the option of monthly or yearly billing.'
       />
-      <div className=''>content</div>
+      <Content.Root>
+        <Content.SelectPlan />
+      </Content.Root>
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { Content } from '../../components/Content';
 import Title from '../../components/Title';
 
 const AddOns = () => {
@@ -7,7 +8,9 @@ const AddOns = () => {
         primaryTitle='Pick add-ons'
         secondaryTitle='Add-ons help enhance your gaming experience.'
       />
-      <div className=''>content</div>
+      <Content.Root>
+        <Content.AddOns />
+      </Content.Root>
     </>
   );
 };
