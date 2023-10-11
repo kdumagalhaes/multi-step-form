@@ -1,11 +1,11 @@
-import { ReactNode } from "react"
-import styles from "./ContainerRight.module.scss"
+import { ReactNode } from 'react';
+import styles from './ContainerRight.module.scss';
 
 interface ContainerRightProps {
-  children: ReactNode
+  children: ReactNode;
 }
-const ContainerRight = ({children}: ContainerRightProps) => {
-  return <div className={styles["container-right"]}>{children}</div>
-}
+const ContainerRight = ({ children }: ContainerRightProps) => {
+  return <div className={styles['container-right']}>{children}</div>;
+};
 
-export default ContainerRight
+export default ContainerRight;
