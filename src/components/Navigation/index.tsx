@@ -7,5 +7,5 @@ export const Navigation = {
   Back: NavigationBack,
   Next: NavigationNext,
   Bar: NavigationBar,
-  Buttons: NavigationButtons
+  Buttons: NavigationButtons,
 };

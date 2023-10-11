@@ -1,10 +1,10 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react';
 
 interface ContainerLeftProps {
-  children: ReactNode
+  children: ReactNode;
 }
-const ContainerLeft = ({children}: ContainerLeftProps) => {
-  return <div>{children}</div>
-}
+const ContainerLeft = ({ children }: ContainerLeftProps) => {
+  return <div>{children}</div>;
+};
 
-export default ContainerLeft
+export default ContainerLeft;

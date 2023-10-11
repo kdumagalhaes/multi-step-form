@@ -15,8 +15,12 @@ const DefaultLayout = () => {
         </Navigation.Bar>
       </Container.Left>
       <Outlet />
+      <Navigation.Buttons>
+        <Navigation.Back />
+        <Navigation.Next />
+      </Navigation.Buttons>
     </Container.Root>
   );
-}
+};
 
-export default DefaultLayout
+export default DefaultLayout;
