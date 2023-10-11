@@ -1,15 +1,15 @@
-import Title from "../../components/Title"
+import Title from '../../components/Title';
 
 const AddOns = () => {
   return (
     <>
-    <Title 
-    primaryTitle="Pick add-ons" 
-    secondaryTitle="Add-ons help enhance your gaming experience." 
-    />
+      <Title
+        primaryTitle='Pick add-ons'
+        secondaryTitle='Add-ons help enhance your gaming experience.'
+      />
       <div className=''>content</div>
     </>
-  )
-}
+  );
+};
 
-export default AddOns
+export default AddOns;
