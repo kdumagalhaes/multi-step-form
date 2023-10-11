@@ -1,3 +1,4 @@
+import { Content } from '../../components/Content';
 import Title from '../../components/Title';
 
 const UserInfo = () => {
@@ -7,7 +8,9 @@ const UserInfo = () => {
         primaryTitle='Personal info'
         secondaryTitle='Please provide name, email address, and phone number.'
       />
-      <div className=''>content</div>
+      <Content.Root>
+        <Content.UserInfo />
+      </Content.Root>
     </>
   );
 };

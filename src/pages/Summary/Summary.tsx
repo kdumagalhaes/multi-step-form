@@ -1,3 +1,4 @@
+import { Content } from '../../components/Content';
 import Title from '../../components/Title';
 
 const Summary = () => {
@@ -7,7 +8,9 @@ const Summary = () => {
         primaryTitle='Finishing up'
         secondaryTitle='Check everything looks OK before confirming.'
       />
-      <div className=''>content</div>
+      <Content.Root>
+        <Content.Summary />
+      </Content.Root>
     </>
   );
 };
