@@ -1,15 +1,15 @@
-import { Container } from '../../components/Container';
 import Title from '../../components/Title';
 
-const Home = () => {
+const UserInfo = () => {
   return (
-    <Container.Right>
+    <>
       <Title
         primaryTitle='Personal info'
         secondaryTitle='Please provide name, email address, and phone number.'
       />
-    </Container.Right>
+      <div className=''>content</div>
+    </>
   );
 };
 
-export default Home;
+export default UserInfo;

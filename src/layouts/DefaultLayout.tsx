@@ -14,11 +14,13 @@ const DefaultLayout = () => {
           <Step stepInfo='Summary' stepNumber='4' isActive={false} />
         </Navigation.Bar>
       </Container.Left>
+    <Container.Right>
       <Outlet />
       <Navigation.Buttons>
         <Navigation.Back />
         <Navigation.Next />
       </Navigation.Buttons>
+      </Container.Right>
     </Container.Root>
   );
 };
