@@ -1,1 +1,1 @@
-export {default} from "./ContentSummary"
+export { default } from './ContentSummary';

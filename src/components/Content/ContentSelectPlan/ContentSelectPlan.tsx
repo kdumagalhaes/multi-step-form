@@ -1,7 +1,5 @@
 const ContentSelectPlan = () => {
-  return (
-    <div>select plan</div>
-  )
-}
+  return <div>select plan</div>;
+};
 
-export default ContentSelectPlan
+export default ContentSelectPlan;

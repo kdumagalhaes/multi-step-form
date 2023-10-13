@@ -1,1 +1,1 @@
-export {default} from "./ContentSelectPlan"
+export { default } from './ContentSelectPlan';

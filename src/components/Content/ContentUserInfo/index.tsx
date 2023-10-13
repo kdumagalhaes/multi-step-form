@@ -1,1 +1,1 @@
-export {default} from "./ContentUserInfo"
+export { default } from './ContentUserInfo';
