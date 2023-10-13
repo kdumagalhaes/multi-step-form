@@ -11,6 +11,18 @@
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $marine-blue;
+
+  &::placeholder {
+    color: $cool-gray;
+  }
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid $purplish-blue;
+  }
 
   &:last-child {
     margin-bottom: 0;
