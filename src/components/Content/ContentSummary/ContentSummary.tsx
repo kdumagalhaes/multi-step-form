@@ -1,7 +1,5 @@
 const ContentSummary = () => {
-  return (
-    <div>summary</div>
-  )
-}
+  return <div>summary</div>;
+};
 
-export default ContentSummary
+export default ContentSummary;

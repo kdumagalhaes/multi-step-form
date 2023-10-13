@@ -10,15 +10,18 @@ const NavigationNext = () => {
   const navigateTo = useNavigate();
 
   const nextPathMap: NextPathMap = {
-    "/": Path.SELECT_PLAN,
-    "/add-ons": Path.SUMMARY,
-    "/select-plan": Path.ADD_ONS,
-    "/summary": "/",
-    "/user-info": Path.SELECT_PLAN
-  }
+    '/': Path.SELECT_PLAN,
+    '/add-ons': Path.SUMMARY,
+    '/select-plan': Path.ADD_ONS,
+    '/summary': '/',
+    '/user-info': Path.SELECT_PLAN,
+  };
 
   return (
-    <button onClick={() => navigateTo(nextPathMap[pathname])} className={styles.next}>
+    <button
+      onClick={() => navigateTo(nextPathMap[pathname])}
+      className={styles.next}
+    >
       Next Step
     </button>
   );

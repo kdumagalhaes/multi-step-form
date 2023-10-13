@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+.label {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: $marine-blue;
+}
+
+.input {
+  border: 1px solid $light-gray;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
