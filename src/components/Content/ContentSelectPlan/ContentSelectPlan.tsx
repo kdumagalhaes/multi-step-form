@@ -7,8 +7,16 @@ const ContentSelectPlan = () => {
     <div className={styles.container}>
       {PLANS.map((plan) => {
         return (
-          <div key={plan.id} role='button' className={styles['plan-card']}>
-            <img src={getIcon(plan.planIcon)} alt='arcade icon' />
+          <div
+            key={plan.id}
+            role='button'
+            className={
+              plan.selected
+                ? `${styles['plan-card']} ${styles.selected}`
+                : `${styles['plan-card']}`
+            }
+          >
+            <img src={getIcon(plan.planIcon)} alt={`${plan.planName} icon`} />
             <p>{plan.planName}</p>
           </div>
         );
