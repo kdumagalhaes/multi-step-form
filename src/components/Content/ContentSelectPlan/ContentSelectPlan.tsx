@@ -1,23 +1,18 @@
-import IconAdvanced from '../../../assets/icons/icon-advanced.svg';
-import IconArcade from '../../../assets/icons/icon-arcade.svg';
-import IconPro from '../../../assets/icons/icon-pro.svg';
+import { PLANS } from '../../../constants/plans';
+import getIcon from '../../../utils/getIcon';
 
 import styles from './ContentSelectPlan.module.scss';
 const ContentSelectPlan = () => {
   return (
     <div className={styles.container}>
-      <div role='button' className={styles['plan-card']}>
-        <img src={IconArcade} alt='arcade icon' />
-        select plan
-      </div>
-      <div role='button' className={styles['plan-card']}>
-        <img src={IconAdvanced} alt='advanced icon' />
-        select plan
-      </div>
-      <div role='button' className={styles['plan-card']}>
-        <img src={IconPro} alt='pro icon' />
-        select plan
-      </div>
+      {PLANS.map((plan) => {
+        return (
+          <div key={plan.id} role='button' className={styles['plan-card']}>
+            <img src={getIcon(plan.planIcon)} alt='arcade icon' />
+            <p>{plan.planName}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };
