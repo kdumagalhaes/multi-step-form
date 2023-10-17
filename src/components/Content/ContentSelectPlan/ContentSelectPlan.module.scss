@@ -12,5 +12,10 @@
     cursor: pointer;
     padding: 1rem;
     min-height: 130px;
+    transition: border 0.3s;
+
+    &:hover {
+      border: 1px solid $purplish-blue;
+    }
   }
 }
