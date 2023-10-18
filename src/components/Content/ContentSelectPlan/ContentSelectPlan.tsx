@@ -1,11 +1,22 @@
-import { PLANS } from '../../../constants/plans';
+import { useState } from 'react';
+import { PLANS, Plan } from '../../../constants/plans';
 import getIcon from '../../../utils/getIcon';
 
 import styles from './ContentSelectPlan.module.scss';
 const ContentSelectPlan = () => {
+  const [plansList, setPlansList] = useState<Plan[]>(PLANS)
+
+  const handleSelectPlan = (planId: number) => {
+    const updatedPlansList = plansList.map(plan =>
+      plan.id === planId ? { ...plan, selected: true } : { ...plan, selected: false }
+    );
+    setPlansList(updatedPlansList);
+  }
+  
+
   return (
     <div className={styles.container}>
-      {PLANS.map((plan) => {
+      {plansList.map((plan) => {
         return (
           <div
             key={plan.id}
@@ -15,6 +26,7 @@ const ContentSelectPlan = () => {
                 ? `${styles['plan-card']} ${styles.selected}`
                 : `${styles['plan-card']}`
             }
+            onClick={() => handleSelectPlan(plan.id)}
           >
             <img className={styles['plan-icon']} src={getIcon(plan.planIcon)} alt={`${plan.planName} icon`} />
             <div className='text-content'>

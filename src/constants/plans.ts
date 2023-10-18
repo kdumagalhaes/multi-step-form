@@ -4,7 +4,16 @@ export enum PlansNames {
   PRO = 'Pro',
 }
 
-export const PLANS = [
+export interface Plan {
+  id: number;
+  planName: PlansNames;
+  planIcon: PlansNames;
+  yearPrice: string;
+  monthPrice: string;
+  selected: boolean;
+}
+
+export const PLANS: Plan[] = [
   {
     id: 1,
     planName: PlansNames.ARCADE,
