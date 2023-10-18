@@ -16,8 +16,12 @@ const ContentSelectPlan = () => {
                 : `${styles['plan-card']}`
             }
           >
-            <img src={getIcon(plan.planIcon)} alt={`${plan.planName} icon`} />
-            <p>{plan.planName}</p>
+            <img className={styles['plan-icon']} src={getIcon(plan.planIcon)} alt={`${plan.planName} icon`} />
+            <div className='text-content'>
+              <p className={styles['plan-name']}>{plan.planName}</p>
+              <p className={styles['plan-price']}>{plan.monthPrice}</p>
+              <p className={styles['plan-promotion']}>2 months free</p>
+            </div>
           </div>
         );
       })}

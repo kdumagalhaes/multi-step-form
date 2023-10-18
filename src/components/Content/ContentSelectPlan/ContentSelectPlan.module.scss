@@ -19,6 +19,32 @@
     }
   }
 
+  .plan-icon {
+    margin-bottom: 3rem;
+  }
+
+  .plan-name {
+    font-weight: 500;
+    color: $marine-blue;
+    font-size: 0.95rem;
+  }
+
+  .plan-price,
+  .plan-promotion {
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .plan-price {
+    font-size: 0.9rem;
+    color: $cool-gray;
+  }
+
+  .plan-promotion {
+    font-size: 0.8rem;
+    color: $marine-blue;
+  }
+
   .selected {
     background-color: $magnolia;
     border: 1px solid $purplish-blue;
