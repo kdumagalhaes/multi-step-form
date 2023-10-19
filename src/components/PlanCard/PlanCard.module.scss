@@ -1,0 +1,55 @@
+@import "../../styles/variables";
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .plan-card {
+    border: 1px solid $light-gray;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 1rem;
+    min-height: 130px;
+    transition: border 0.3s;
+
+    &:hover {
+      border: 1px solid $purplish-blue;
+    }
+  }
+
+  .plan-icon {
+    margin-bottom: 3rem;
+  }
+
+  .text-content {
+    .plan-name {
+      font-weight: 500;
+      color: $marine-blue;
+      font-size: 0.95rem;
+    }
+  
+    .plan-price,
+    .plan-promotion {
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .plan-price {
+      font-size: 0.9rem;
+      color: $cool-gray;
+    }
+  
+    .plan-promotion {
+      font-size: 0.8rem;
+      color: $marine-blue;
+    }
+  }
+
+  .selected {
+    background-color: $magnolia;
+    border: 1px solid $purplish-blue;
+  }
+}
