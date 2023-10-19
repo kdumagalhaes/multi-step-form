@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/212fc280b44d42e1bf669b53216b8c0b)](https://app.codacy.com/gh/kdumagalhaes/multi-step-form?utm_source=github.com&utm_medium=referral&utm_content=kdumagalhaes/multi-step-form&utm_campaign=Badge_Grade)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
