@@ -1,6 +1,24 @@
 @import "../../styles/variables";
 
 .toggle {
+  background-color: $magnolia;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  gap: 1rem;
+
+  .plans {
+    color: $marine-blue;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .selected {
+    color: $cool-gray;
+  }
+
   label {
     position: relative;
     display: inline-block;

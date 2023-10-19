@@ -6,15 +6,22 @@ interface ToggleProps {
   toggled: boolean;
 }
 const Toggle = ({ onClick, toggled }: ToggleProps) => {
-  const [isToggled, toggle] = useState(toggled);
+  const [isToggled, setIsToggled] = useState(toggled);
 
   const handleToggleClick = () => {
-    toggle(!isToggled);
+    setIsToggled(!isToggled);
     onClick(!isToggled);
   };
 
   return (
     <div className={styles.toggle}>
+      <p
+        className={
+          isToggled ? `${styles.plans} ${styles.selected}` : `${styles.plans}`
+        }
+      >
+        Monthly
+      </p>
       <label>
         <input
           type='checkbox'
@@ -23,6 +30,13 @@ const Toggle = ({ onClick, toggled }: ToggleProps) => {
         />
         <span />
       </label>
+      <p
+        className={
+          isToggled ? `${styles.plans}` : `${styles.plans} ${styles.selected}`
+        }
+      >
+        Yearly
+      </p>
     </div>
   );
 };
