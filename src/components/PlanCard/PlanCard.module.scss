@@ -1,11 +1,6 @@
 @import "../../styles/variables";
 
-.cards {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
-
+.container {
   .plan-card {
     border: 1px solid $light-gray;
     width: 100%;
