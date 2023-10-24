@@ -1,5 +1,80 @@
 @import "../../styles/variables";
 
 .selector {
-  
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid $light-gray;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .input {
+    margin-right: 1rem;
+    position: relative;
+	  cursor: pointer;
+    
+    &::before {
+      border-radius: 4px;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: -2px;
+      left: -4px;
+    }
+    
+    &::before {
+      background-color: $light-gray;
+    }
+
+    &:checked::before {
+      background-color:$purplish-blue;
+    }
+
+    &:checked::after {
+      content: "";
+      display: block;
+      width: 5px;
+      height: 10px;
+      border: solid $magnolia;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      top: 0px;
+      left: 3px;
+    }
+  }
+
+  .text-content {
+    flex-grow: 1;
+
+    .title {
+      color: $marine-blue;
+      margin-bottom: 0.4rem;
+    }
+
+    .description {
+      color: $cool-gray;
+      font-size: 0.9rem;
+    }
+  }
+
+  .plan-price {
+    color: $purplish-blue;
+    font-weight: 700;
+  }
+}
+
+.selected {
+  background-color: $magnolia;
+  border: 1px solid $purplish-blue;
 }

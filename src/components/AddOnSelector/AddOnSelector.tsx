@@ -14,12 +14,28 @@ const AddOnSelector = ({
   yearPrice,
   monthPrice,
 }: AddOnSelectorProps) => {
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
   return (
-    <div key={id} className={styles.selector}>
-      <input onClick={() => setIsChecked(!isChecked)} type='checkbox' name={title} id={title} checked={isChecked} />
-      <h3>{title}</h3>
-      <p>{description}</p>
+    <div
+      onClick={() => setIsChecked(!isChecked)}
+      key={id}
+      className={
+        isChecked
+          ? `${styles.selector} ${styles.selected}`
+          : `${styles.selector}`
+      }
+    >
+      <input
+        className={styles.input}
+        type='checkbox'
+        name={title}
+        id={title}
+        checked={isChecked}
+      />
+      <div className={styles['text-content']}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+      </div>
       {planMode === 'monthly' ? (
         <p className={styles['plan-price']}>{monthPrice}</p>
       ) : (
