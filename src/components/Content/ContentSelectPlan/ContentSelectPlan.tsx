@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import Toggle from '../../Toggle';
 import PlanCard from '../../PlanCard';
+import { PLANS, Plan } from '../../../constants/plans';
 
 import styles from './ContentSelectPlan.module.scss';
-import { PLANS, Plan } from '../../../constants/plans';
+import { useAppSelector } from '../../../redux/store';
 const ContentSelectPlan = () => {
+  const selectedPlan = useAppSelector((state) => state.plan.planMode)
   const [isClicked, setIsClicked] = useState(false);
   const [plansList, setPlansList] = useState<Plan[]>(PLANS);
 
@@ -30,6 +32,7 @@ const ContentSelectPlan = () => {
             planName={plan.planName}
             selected={plan.selected}
             yearPrice={plan.yearPrice}
+            planMode={selectedPlan}
             handleSelectPlan={handleSelectPlan}
           />
         );
