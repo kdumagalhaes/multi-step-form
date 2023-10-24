@@ -35,7 +35,7 @@ const Toggle = ({ onClick, toggled }: ToggleProps) => {
         <input
           type='checkbox'
           defaultChecked={isToggled}
-          onClick={handleToggleClick}
+          onChange={handleToggleClick}
         />
         <span />
       </label>

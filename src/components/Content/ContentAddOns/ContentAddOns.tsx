@@ -1,18 +1,18 @@
 import { ADD_ONS } from '../../../constants/addOns';
-import { useAppSelector } from '../../../redux/store';
+import { PlansModes } from '../../../constants/plans';
 import AddOnSelector from '../../AddOnSelector';
 
 const ContentAddOns = () => {
-  const selectedPlan = useAppSelector((state) => state.plan.planMode)
+  const selectedPlan = localStorage.getItem("planMode") as PlansModes
 
   return (
     <div>
       {ADD_ONS.map((addOn) => {
         return (
           <AddOnSelector
+            key={addOn.id}
             title={addOn.title}
             description={addOn.description}
-            isChecked={addOn.isChecked}
             id={addOn.id}
             monthPrice={addOn.monthPrice}
             yearPrice={addOn.yearPrice}

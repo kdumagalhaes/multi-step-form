@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PlansModes } from "../../constants/plans";
-
 interface PlanState {
   planMode: PlansModes;
 }
@@ -15,6 +14,7 @@ export const PlanSlice = createSlice({
   reducers: {
     setTogglePlan: (state, action) => {
       state.planMode = action.payload
+      localStorage.setItem("planMode", action.payload)
     }
   }
 })
