@@ -1,11 +1,11 @@
-import { Plan } from '../../constants/plans';
+import { Plan, PlansModes } from '../../constants/plans';
 import getIcon from '../../utils/getIcon';
 
 import styles from './PlanCard.module.scss';
 
 interface PlanCardProps extends Plan {
   handleSelectPlan: (id: number) => void
-  planMode: "yearly" | "monthly"
+  planMode: PlansModes
 }
 const PlanCard = ({
   id,

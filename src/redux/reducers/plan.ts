@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { PlansModes } from "../../constants/plans";
 
 interface PlanState {
-  planMode: 'yearly' | 'monthly';
+  planMode: PlansModes;
 }
 
 const initialState: PlanState = {
-  planMode: "monthly"
+  planMode: PlansModes.MONTHLY
 }
 
 export const PlanSlice = createSlice({

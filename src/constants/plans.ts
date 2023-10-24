@@ -4,6 +4,11 @@ export enum PlansNames {
   PRO = 'Pro',
 }
 
+export enum PlansModes {
+  YEARLY = "yearly",
+  MONTHLY = "monthly"
+}
+
 export interface Plan {
   id: number;
   planName: PlansNames;
