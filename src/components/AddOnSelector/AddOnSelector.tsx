@@ -31,6 +31,7 @@ const AddOnSelector = ({
         name={title}
         id={title}
         checked={isChecked}
+        readOnly
       />
       <div className={styles['text-content']}>
         <h3 className={styles.title}>{title}</h3>
