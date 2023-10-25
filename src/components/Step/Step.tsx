@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './Step.module.scss';
 
 interface StepProps {
@@ -5,7 +6,7 @@ interface StepProps {
   stepInfo: string;
   isActive?: boolean;
 }
-const Step = ({ stepNumber, stepInfo, isActive = false }: StepProps) => {
+const Step = memo(({ stepNumber, stepInfo, isActive = false }: StepProps) => {
   return (
     <div className={styles.step}>
       <div
@@ -23,6 +24,6 @@ const Step = ({ stepNumber, stepInfo, isActive = false }: StepProps) => {
       </div>
     </div>
   );
-};
+});
 
 export default Step;
