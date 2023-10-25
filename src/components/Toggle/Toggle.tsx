@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import styles from './Toggle.module.scss';
 import { useAppDispatch } from '../../redux/store';
 import { setTogglePlan } from '../../redux/reducers/plan';
@@ -7,7 +7,7 @@ interface ToggleProps {
   onClick: (isToggled: boolean) => void;
   toggled: boolean;
 }
-const Toggle = ({ onClick, toggled }: ToggleProps) => {
+const Toggle = memo(({ onClick, toggled }: ToggleProps) => {
   const dispatch = useAppDispatch()
   const [isToggled, setIsToggled] = useState(toggled);
 
@@ -48,6 +48,6 @@ const Toggle = ({ onClick, toggled }: ToggleProps) => {
       </p>
     </div>
   );
-};
+});
 
 export default Toggle;
