@@ -16,3 +16,12 @@
     background-color: $purplish-blue;
   }
 }
+.disabled {
+  cursor: not-allowed;
+  background-color: $light-gray;
+  color: $cool-gray;
+
+  &:hover {
+    background-color: $light-gray;
+  }
+}
