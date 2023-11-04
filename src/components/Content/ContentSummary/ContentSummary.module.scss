@@ -66,11 +66,17 @@
 .total {
   display: flex;
   justify-content: space-between;
+  padding: 1.5rem 1rem;
+  align-items: center;
   .total-mode {
-
+    font-size: 0.9rem;
+    font-weight: $font-medium;
+    color: $cool-gray;
   }
 
   .total-price {
-
+    font-size: 1.3rem;
+    font-weight: $font-bold;
+    color: $purplish-blue;
   }
 }
