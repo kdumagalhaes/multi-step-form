@@ -1,13 +1,28 @@
+import { useAppDispatch, useAppSelector } from '../../../redux/store';
+import { PlansModes } from '../../../constants/plans';
+import { setTogglePlan } from '../../../redux/reducers/plan';
+
 import styles from './ContentSummary.module.scss';
 
 const ContentSummary = () => {
+  const dispatch = useAppDispatch()
+  const selectedPlan = useAppSelector((state) => state.plan.planMode);
+
+  const planModeName = `${selectedPlan.charAt(0).toUpperCase()}${selectedPlan.slice(1)}`
+
+  const handleChangePlanModeClick = () => {
+    selectedPlan === PlansModes.MONTHLY 
+    ? dispatch(setTogglePlan(PlansModes.YEARLY))
+    : dispatch(setTogglePlan(PlansModes.MONTHLY))
+  };
+
   return (
     <>
       <div className={styles.summary}>
         <div className={styles['selected-plan']}>
           <div className={styles['plan-title']}>
-            <p className={styles['plan-name']}>Arcade (Monthly)</p>
-            <a href='#' className={styles['plan-mode']}>
+            <p className={styles['plan-name']}>{`Arcade (${planModeName})`}</p>
+            <a onClick={handleChangePlanModeClick} role='button' className={styles['plan-mode']}>
               Change
             </a>
           </div>
