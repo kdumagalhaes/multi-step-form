@@ -7,7 +7,9 @@ interface NextPathMap {
   [key: string]: Path | string;
 }
 const NavigationNext = () => {
-  const isButtonDisabled = useAppSelector((state) => state.validation.isButtonDisabled)
+  const isButtonDisabled = useAppSelector(
+    (state) => state.validation.isButtonDisabled,
+  );
   const { pathname } = useLocation();
   const navigateTo = useNavigate();
 
@@ -22,10 +24,12 @@ const NavigationNext = () => {
   return (
     <button
       onClick={() => navigateTo(nextPathMap[pathname])}
-      className={isButtonDisabled ? `${styles.next} ${styles.disabled}` :  styles.next}
+      className={
+        isButtonDisabled ? `${styles.next} ${styles.disabled}` : styles.next
+      }
       disabled={isButtonDisabled}
     >
-      {pathname === "/summary" ? "Confirm" : "Next Step"}
+      {pathname === '/summary' ? 'Confirm' : 'Next Step'}
     </button>
   );
 };

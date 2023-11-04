@@ -3,20 +3,20 @@ import styles from './ContentUserInfo.module.scss';
 import { useAppDispatch } from '../../../redux/store';
 import { setSubmitValidation } from '../../../redux/reducers/validation';
 const ContentUserInfo = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-  const [inputName, setInputName] = useState("")
-  const [inputEmail, setInputEmail] = useState("")
-  const [inputPhone, setInputPhone] = useState("")
+  const [inputName, setInputName] = useState('');
+  const [inputEmail, setInputEmail] = useState('');
+  const [inputPhone, setInputPhone] = useState('');
 
   useEffect(() => {
-    const isNotValid = 
-      inputName?.length === 0 || 
+    const isNotValid =
+      inputName?.length === 0 ||
       inputEmail?.length === 0 ||
-      inputPhone?.length === 0
+      inputPhone?.length === 0;
 
-      dispatch(setSubmitValidation(isNotValid))
-  }, [inputName, inputEmail, inputPhone, dispatch])
+    dispatch(setSubmitValidation(isNotValid));
+  }, [inputName, inputEmail, inputPhone, dispatch]);
 
   return (
     <>

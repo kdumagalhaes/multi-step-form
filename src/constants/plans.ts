@@ -5,8 +5,8 @@ export enum PlansNames {
 }
 
 export enum PlansModes {
-  YEARLY = "yearly",
-  MONTHLY = "monthly"
+  YEARLY = 'yearly',
+  MONTHLY = 'monthly',
 }
 
 export interface Plan {
@@ -23,24 +23,24 @@ export const PLANS: Plan[] = [
     id: 1,
     planName: PlansNames.ARCADE,
     planIcon: PlansNames.ARCADE,
-    yearPrice: "$90/yr",
-    monthPrice: "$9/mo",
-    selected: true
+    yearPrice: '$90/yr',
+    monthPrice: '$9/mo',
+    selected: true,
   },
   {
     id: 2,
     planName: PlansNames.ADVANCED,
     planIcon: PlansNames.ADVANCED,
-    yearPrice: "$120/yr",
-    monthPrice: "$12/mo",
-    selected: false
+    yearPrice: '$120/yr',
+    monthPrice: '$12/mo',
+    selected: false,
   },
   {
     id: 3,
     planName: PlansNames.PRO,
     planIcon: PlansNames.PRO,
-    yearPrice: "$150/yr",
-    monthPrice: "$15/mo",
-    selected: false
+    yearPrice: '$150/yr',
+    monthPrice: '$15/mo',
+    selected: false,
   },
 ];
