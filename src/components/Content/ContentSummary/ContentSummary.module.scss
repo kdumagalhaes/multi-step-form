@@ -1,0 +1,76 @@
+@import "../../../styles/variables";
+
+.summary {
+  background-color: $magnolia;
+  padding: 1.5rem;
+  border-radius: 10px;
+
+  .selected-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    .plan-title {
+      font-size: 0.95rem;
+      font-weight: $font-medium;
+
+      .plan-name {
+        color: $marine-blue;
+        margin-bottom: 0.4rem;
+      }
+
+      .plan-mode {
+        background: transparent;
+        color: $cool-gray;
+        transition: color 0.3s;
+        font-size: 0.85rem;
+
+        &:hover {
+          color: $purplish-blue;
+        }
+      }
+    }
+
+    .plan-price {
+      font-weight: $font-bold;
+      color: $marine-blue;
+    }
+  }
+
+  .item-list {
+    border-top: 1px solid $cool-gray;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      font-weight: $font-medium;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .item-name {
+        color: $cool-gray;
+      }
+
+      .item-price {
+        color: $marine-blue;
+      }
+    }
+  }
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  .total-mode {
+
+  }
+
+  .total-price {
+
+  }
+}
