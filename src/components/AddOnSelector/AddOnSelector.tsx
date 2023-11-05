@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AddOns } from '../../constants/addOns';
 import { PlansModes } from '../../constants/plans';
 import styles from './AddOnSelector.module.scss';
+import convertPrice from '../../utils/convertPrice';
 
 interface AddOnSelectorProps extends AddOns {
   planMode: PlansModes;
@@ -15,6 +16,11 @@ const AddOnSelector = ({
   monthPrice,
 }: AddOnSelectorProps) => {
   const [isChecked, setIsChecked] = useState(false);
+
+  const formattedPlanPrice = planMode === PlansModes.MONTHLY 
+  ? `+${convertPrice(monthPrice, PlansModes.MONTHLY) }`
+  : `+${convertPrice(yearPrice, PlansModes.YEARLY)}`
+
   return (
     <div
       onClick={() => setIsChecked(!isChecked)}
@@ -37,11 +43,7 @@ const AddOnSelector = ({
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
       </div>
-      {planMode === 'monthly' ? (
-        <p className={styles['plan-price']}>{monthPrice}</p>
-      ) : (
-        <p className={styles['plan-price']}>{yearPrice}</p>
-      )}
+      <p className={styles['plan-price']}>{formattedPlanPrice}</p>
     </div>
   );
 };
