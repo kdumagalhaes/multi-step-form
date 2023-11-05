@@ -1,26 +1,26 @@
 import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../redux/store';
+import { setSelectedPlan } from '../../../redux/reducers/plan';
+import { PLANS, Plan, PlansModes } from '../../../constants/plans';
 import Toggle from '../../Toggle';
 import PlanCard from '../../PlanCard';
-import { PLANS, Plan, PlansModes } from '../../../constants/plans';
-import { useAppDispatch, useAppSelector } from '../../../redux/store';
 
 import styles from './ContentSelectPlan.module.scss';
-import { setSelectedPlan } from '../../../redux/reducers/plan';
 const ContentSelectPlan = () => {
   const dispatch = useAppDispatch();
   const selectedPlanMode = useAppSelector((state) => state.plan.planMode);
-  
-  const selectedPlan = localStorage.getItem('selectedPlan')
+
+  const selectedPlan = localStorage.getItem('selectedPlan');
   const planMode = localStorage.getItem('planMode') as PlansModes;
 
-  const formattedSelectedPlan = selectedPlan ? JSON.parse(selectedPlan) : {}
+  const formattedSelectedPlan = selectedPlan ? JSON.parse(selectedPlan) : {};
 
   const updatedPlansList = PLANS.map((plan) => {
     if (plan.id === formattedSelectedPlan.id) {
-      return {...plan, selected: formattedSelectedPlan.selected}
+      return { ...plan, selected: formattedSelectedPlan.selected };
     }
-    return plan
-  })
+    return plan;
+  });
 
   const [plansList, setPlansList] = useState<Plan[]>(updatedPlansList);
   const [isClicked, setIsClicked] = useState(planMode === 'yearly');
@@ -33,7 +33,6 @@ const ContentSelectPlan = () => {
     );
     setPlansList(updatedPlansList);
     dispatch(setSelectedPlan(updatedPlansList[planId - 1]));
-
   };
 
   return (
