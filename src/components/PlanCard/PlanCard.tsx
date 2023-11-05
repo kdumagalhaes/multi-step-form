@@ -4,8 +4,8 @@ import getIcon from '../../utils/getIcon';
 import styles from './PlanCard.module.scss';
 
 interface PlanCardProps extends Plan {
-  handleSelectPlan: (id: number) => void
-  planMode: PlansModes
+  handleSelectPlan: (id: number) => void;
+  planMode: PlansModes;
 }
 const PlanCard = ({
   id,
@@ -15,7 +15,7 @@ const PlanCard = ({
   selected,
   yearPrice,
   planMode,
-  handleSelectPlan
+  handleSelectPlan,
 }: PlanCardProps) => {
   return (
     <div className={styles.container}>
@@ -35,12 +35,14 @@ const PlanCard = ({
         />
         <div className={styles['text-content']}>
           <p className={styles['plan-name']}>{planName}</p>
-          {
-            planMode === "monthly" 
-            ? <p className={styles['plan-price']}>{monthPrice}</p>
-            : <p className={styles['plan-price']}>{yearPrice}</p>
-          } 
-          {planMode === "yearly" && <p className={styles['plan-promotion']}>2 months free</p>}
+          {planMode === 'monthly' ? (
+            <p className={styles['plan-price']}>{monthPrice}</p>
+          ) : (
+            <p className={styles['plan-price']}>{yearPrice}</p>
+          )}
+          {planMode === 'yearly' && (
+            <p className={styles['plan-promotion']}>2 months free</p>
+          )}
         </div>
       </div>
     </div>

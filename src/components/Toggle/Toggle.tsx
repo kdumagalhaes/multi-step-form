@@ -8,7 +8,7 @@ interface ToggleProps {
   toggled: boolean;
 }
 const Toggle = memo(({ onClick, toggled }: ToggleProps) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const [isToggled, setIsToggled] = useState(toggled);
 
   const handleToggleClick = () => {
@@ -17,10 +17,10 @@ const Toggle = memo(({ onClick, toggled }: ToggleProps) => {
   };
 
   useEffect(() => {
-     isToggled 
-     ? dispatch(setTogglePlan("yearly")) 
-     : dispatch(setTogglePlan("monthly"))
-  }, [dispatch, isToggled])
+    isToggled
+      ? dispatch(setTogglePlan('yearly'))
+      : dispatch(setTogglePlan('monthly'));
+  }, [dispatch, isToggled]);
 
   return (
     <div className={styles.toggle}>

@@ -3,7 +3,7 @@ import { PlansModes } from '../../../constants/plans';
 import AddOnSelector from '../../AddOnSelector';
 
 const ContentAddOns = () => {
-  const selectedPlan = localStorage.getItem("planMode") as PlansModes
+  const selectedPlan = localStorage.getItem('planMode') as PlansModes;
 
   return (
     <div>
