@@ -1,4 +1,5 @@
 import { Plan, PlansModes } from '../../constants/plans';
+import convertPrice from '../../utils/convertPrice';
 import getIcon from '../../utils/getIcon';
 
 import styles from './PlanCard.module.scss';
@@ -17,6 +18,11 @@ const PlanCard = ({
   planMode,
   handleSelectPlan,
 }: PlanCardProps) => {
+
+  const formattedPlanPrice = planMode === PlansModes.MONTHLY 
+  ? convertPrice(monthPrice, PlansModes.MONTHLY) 
+  : convertPrice(yearPrice, PlansModes.YEARLY)
+
   return (
     <div className={styles.container}>
       <div
@@ -35,11 +41,7 @@ const PlanCard = ({
         />
         <div className={styles['text-content']}>
           <p className={styles['plan-name']}>{planName}</p>
-          {planMode === 'monthly' ? (
-            <p className={styles['plan-price']}>{monthPrice}</p>
-          ) : (
-            <p className={styles['plan-price']}>{yearPrice}</p>
-          )}
+          <p className={styles['plan-price']}>{formattedPlanPrice}</p>
           {planMode === 'yearly' && (
             <p className={styles['plan-promotion']}>2 months free</p>
           )}
