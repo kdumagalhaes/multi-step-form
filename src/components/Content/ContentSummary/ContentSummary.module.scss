@@ -26,10 +26,10 @@
         transition: color 0.3s;
         font-size: 0.85rem;
         cursor: pointer;
+        text-decoration: underline;
 
         &:hover {
           color: $purplish-blue;
-          text-decoration: underline;
         }
       }
     }
