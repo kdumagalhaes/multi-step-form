@@ -2,11 +2,13 @@ import { useState } from 'react';
 import Toggle from '../../Toggle';
 import PlanCard from '../../PlanCard';
 import { PLANS, Plan, PlansModes } from '../../../constants/plans';
-import { useAppSelector } from '../../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../../redux/store';
 
 import styles from './ContentSelectPlan.module.scss';
+import { setSelectedPlan } from '../../../redux/reducers/plan';
 const ContentSelectPlan = () => {
-  const selectedPlan = useAppSelector((state) => state.plan.planMode);
+  const dispatch = useAppDispatch();
+  const selectedPlanMode = useAppSelector((state) => state.plan.planMode);
 
   const planMode = localStorage.getItem('planMode') as PlansModes;
   const [plansList, setPlansList] = useState<Plan[]>(PLANS);
@@ -19,6 +21,8 @@ const ContentSelectPlan = () => {
         : { ...plan, selected: false },
     );
     setPlansList(updatedPlansList);
+    dispatch(setSelectedPlan(updatedPlansList[planId - 1]));
+
   };
 
   return (
@@ -34,7 +38,7 @@ const ContentSelectPlan = () => {
               planName={plan.planName}
               selected={plan.selected}
               yearPrice={plan.yearPrice}
-              planMode={selectedPlan}
+              planMode={selectedPlanMode}
               handleSelectPlan={handleSelectPlan}
             />
           );
