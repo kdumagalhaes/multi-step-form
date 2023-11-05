@@ -9,9 +9,20 @@ import { setSelectedPlan } from '../../../redux/reducers/plan';
 const ContentSelectPlan = () => {
   const dispatch = useAppDispatch();
   const selectedPlanMode = useAppSelector((state) => state.plan.planMode);
-
+  
+  const selectedPlan = localStorage.getItem('selectedPlan')
   const planMode = localStorage.getItem('planMode') as PlansModes;
-  const [plansList, setPlansList] = useState<Plan[]>(PLANS);
+
+  const formattedSelectedPlan = selectedPlan ? JSON.parse(selectedPlan) : {}
+
+  const updatedPlansList = PLANS.map((plan) => {
+    if (plan.id === formattedSelectedPlan.id) {
+      return {...plan, selected: formattedSelectedPlan.selected}
+    }
+    return plan
+  })
+
+  const [plansList, setPlansList] = useState<Plan[]>(updatedPlansList);
   const [isClicked, setIsClicked] = useState(planMode === 'yearly');
 
   const handleSelectPlan = (planId: number) => {

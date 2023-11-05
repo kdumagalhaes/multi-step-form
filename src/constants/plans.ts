@@ -25,7 +25,7 @@ export const PLANS: Plan[] = [
     planIcon: PlansNames.ARCADE,
     yearPrice: 90,
     monthPrice: 9,
-    selected: true,
+    selected: false,
   },
   {
     id: 2,
