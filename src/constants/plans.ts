@@ -6,7 +6,7 @@ export enum PlansNames {
 
 export enum PlansModes {
   YEARLY = "yearly",
-  MONTHLY = "monthly"
+  MONTHLY = "monthly",
 }
 
 export interface Plan {
