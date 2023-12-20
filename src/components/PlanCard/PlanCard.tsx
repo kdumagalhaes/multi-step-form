@@ -4,10 +4,9 @@ import getIcon from "../../utils/getIcon";
 import styles from "./PlanCard.module.scss";
 
 interface PlanCardProps extends Plan {
-  handleSelectPlan: (id: number) => void;
+  handleSelectPlan: (id: string) => void;
   planMode: PlansModes;
-  handleSelectPlan: (id: number) => void;
-  planMode: PlansModes;
+
 }
 const PlanCard = ({
   id,

@@ -1,26 +1,39 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Toggle from "../../Toggle";
 import PlanCard from "../../PlanCard";
-import { PLANS, Plan, PlansModes } from "../../../constants/plans";
+import { PLANS, Plan } from "../../../constants/plans";
 import { useAppSelector } from "../../../redux/store";
-import { setInLocalStorage } from "../../../utils/localStorage";
 import { localStorageKey } from "../../../constants/localStorageKeys";
 
 import styles from "./ContentSelectPlan.module.scss";
 const ContentSelectPlan = () => {
-  const selectedPlan = useAppSelector((state) => state.plan.planMode);
+  const selectedPlanMode = useAppSelector((state) => state.plan.planMode);
 
-  const planMode = localStorage.getItem("planMode") as PlansModes;
+  const planMode = localStorage.getItem(localStorageKey.PLAN_MODE);
+  const selectedPlanTypeID = localStorage.getItem(localStorageKey.PLAN_TYPE_ID);
+
   const [plansList, setPlansList] = useState<Plan[]>(PLANS);
   const [isClicked, setIsClicked] = useState(planMode === "yearly");
 
-  const handleSelectPlan = (planId: number) => {
+  const handleSelectPlan = (planID: string) => {
     const updatedPlansList = plansList.map((plan) =>
-      plan.id === planId ? { ...plan, selected: true } : { ...plan, selected: false }
+      plan.id === planID  ? { ...plan, selected: true } : { ...plan, selected: false }
     );
     setPlansList(updatedPlansList);
-    setInLocalStorage(localStorageKey.PLAN_TYPE, planId.toString());
+    localStorage.setItem(localStorageKey.PLAN_TYPE_ID, planID);
   };
+
+  const setSelectedPlan = useCallback(() => {
+    const updatedPlansList = plansList.map((plan) =>
+    plan.id === selectedPlanTypeID ? { ...plan, selected: true } : { ...plan, selected: false }
+  );
+    setPlansList(updatedPlansList);
+  }, [selectedPlanTypeID, plansList]);
+
+  useEffect(() => {
+    setSelectedPlan();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedPlanTypeID]);
 
   return (
     <div className={styles.container}>
@@ -35,7 +48,7 @@ const ContentSelectPlan = () => {
               planName={plan.planName}
               selected={plan.selected}
               yearPrice={plan.yearPrice}
-              planMode={selectedPlan}
+              planMode={selectedPlanMode}
               handleSelectPlan={handleSelectPlan}
             />
           );
