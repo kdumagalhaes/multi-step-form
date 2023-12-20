@@ -3,6 +3,8 @@ import Toggle from "../../Toggle";
 import PlanCard from "../../PlanCard";
 import { PLANS, Plan, PlansModes } from "../../../constants/plans";
 import { useAppSelector } from "../../../redux/store";
+import { setInLocalStorage } from "../../../utils/localStorage";
+import { localStorageKey } from "../../../constants/localStorageKeys";
 
 import styles from "./ContentSelectPlan.module.scss";
 const ContentSelectPlan = () => {
@@ -17,6 +19,7 @@ const ContentSelectPlan = () => {
       plan.id === planId ? { ...plan, selected: true } : { ...plan, selected: false }
     );
     setPlansList(updatedPlansList);
+    setInLocalStorage(localStorageKey.PLAN_TYPE, planId.toString());
   };
 
   return (
