@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Path } from "../../constants/pages";
-import styles from "./NavigationNext.module.scss";
 import { useAppSelector } from "../../redux/store";
+import styles from "./NavigationNext.module.scss";
 
 interface NextPathMap {
   [key: string]: Path | string;
@@ -15,7 +15,7 @@ const NavigationNext = () => {
     "/": Path.SELECT_PLAN,
     "/add-ons": Path.SUMMARY,
     "/select-plan": Path.ADD_ONS,
-    "/summary": "/",
+    "/summary": Path.ORDER_PLACED,
     "/user-info": Path.SELECT_PLAN
   };
 
