@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import styles from './NavigationBar.module.scss';
+import { ReactNode } from "react";
+import styles from "./NavigationBar.module.scss";
 
 interface NavigationBarProps {
   children: ReactNode;

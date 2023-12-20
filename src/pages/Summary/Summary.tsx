@@ -1,12 +1,12 @@
-import { Content } from '../../components/Content';
-import Title from '../../components/Title';
+import { Content } from "../../components/Content";
+import Title from "../../components/Title";
 
 const Summary = () => {
   return (
     <>
       <Title
-        primaryTitle='Finishing up'
-        secondaryTitle='Check everything looks OK before confirming.'
+        primaryTitle="Finishing up"
+        secondaryTitle="Check everything looks OK before confirming."
       />
       <Content.Root>
         <Content.Summary />

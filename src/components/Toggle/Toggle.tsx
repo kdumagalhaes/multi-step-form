@@ -1,14 +1,14 @@
-import { memo, useEffect, useState } from 'react';
-import styles from './Toggle.module.scss';
-import { useAppDispatch } from '../../redux/store';
-import { setTogglePlan } from '../../redux/reducers/plan';
+import { memo, useEffect, useState } from "react";
+import styles from "./Toggle.module.scss";
+import { useAppDispatch } from "../../redux/store";
+import { setTogglePlan } from "../../redux/reducers/plan";
 
 interface ToggleProps {
   onClick: (isToggled: boolean) => void;
   toggled: boolean;
 }
 const Toggle = memo(({ onClick, toggled }: ToggleProps) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const [isToggled, setIsToggled] = useState(toggled);
 
   const handleToggleClick = () => {
@@ -17,35 +17,19 @@ const Toggle = memo(({ onClick, toggled }: ToggleProps) => {
   };
 
   useEffect(() => {
-     isToggled 
-     ? dispatch(setTogglePlan("yearly")) 
-     : dispatch(setTogglePlan("monthly"))
-  }, [dispatch, isToggled])
+    isToggled ? dispatch(setTogglePlan("yearly")) : dispatch(setTogglePlan("monthly"));
+  }, [dispatch, isToggled]);
 
   return (
     <div className={styles.toggle}>
-      <p
-        className={
-          isToggled ? `${styles.plans} ${styles.selected}` : `${styles.plans}`
-        }
-      >
+      <p className={isToggled ? `${styles.plans} ${styles.selected}` : `${styles.plans}`}>
         Monthly
       </p>
       <label>
-        <input
-          type='checkbox'
-          defaultChecked={isToggled}
-          onChange={handleToggleClick}
-        />
+        <input type="checkbox" defaultChecked={isToggled} onChange={handleToggleClick} />
         <span />
       </label>
-      <p
-        className={
-          isToggled ? `${styles.plans}` : `${styles.plans} ${styles.selected}`
-        }
-      >
-        Yearly
-      </p>
+      <p className={isToggled ? `${styles.plans}` : `${styles.plans} ${styles.selected}`}>Yearly</p>
     </div>
   );
 });

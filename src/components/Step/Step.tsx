@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import styles from './Step.module.scss';
+import { memo } from "react";
+import styles from "./Step.module.scss";
 
 interface StepProps {
   stepNumber: string;
@@ -9,16 +9,10 @@ interface StepProps {
 const Step = memo(({ stepNumber, stepInfo, isActive = false }: StepProps) => {
   return (
     <div className={styles.step}>
-      <div
-        className={
-          isActive
-            ? `${styles.number} ${styles['number-active']}`
-            : styles.number
-        }
-      >
+      <div className={isActive ? `${styles.number} ${styles["number-active"]}` : styles.number}>
         {stepNumber}
       </div>
-      <div className={styles['text-container']}>
+      <div className={styles["text-container"]}>
         <p className={styles.indication}>step {stepNumber}</p>
         <p className={styles.info}>{stepInfo}</p>
       </div>

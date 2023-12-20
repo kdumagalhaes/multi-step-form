@@ -1,1 +1,1 @@
-export { default } from './ContentAddOns';
+export { default } from "./ContentAddOns";

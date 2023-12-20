@@ -1,7 +1,7 @@
 export enum PlansNames {
-  ADVANCED = 'Advanced',
-  ARCADE = 'Arcade',
-  PRO = 'Pro',
+  ADVANCED = "Advanced",
+  ARCADE = "Arcade",
+  PRO = "Pro"
 }
 
 export enum PlansModes {
@@ -42,5 +42,5 @@ export const PLANS: Plan[] = [
     yearPrice: "$150/yr",
     monthPrice: "$15/mo",
     selected: false
-  },
+  }
 ];
