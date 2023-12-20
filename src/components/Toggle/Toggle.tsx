@@ -9,7 +9,6 @@ interface ToggleProps {
 }
 const Toggle = memo(({ onClick, toggled }: ToggleProps) => {
   const dispatch = useAppDispatch();
-  const dispatch = useAppDispatch();
   const [isToggled, setIsToggled] = useState(toggled);
 
   const handleToggleClick = () => {
