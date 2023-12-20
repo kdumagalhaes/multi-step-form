@@ -1,4 +1,4 @@
-import styles from './Title.module.scss';
+import styles from "./Title.module.scss";
 
 interface TitleProps {
   primaryTitle: string;

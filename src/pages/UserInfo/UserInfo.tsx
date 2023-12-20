@@ -1,12 +1,12 @@
-import { Content } from '../../components/Content';
-import Title from '../../components/Title';
+import { Content } from "../../components/Content";
+import Title from "../../components/Title";
 
 const UserInfo = () => {
   return (
     <>
       <Title
-        primaryTitle='Personal info'
-        secondaryTitle='Please provide name, email address, and phone number.'
+        primaryTitle="Personal info"
+        secondaryTitle="Please provide name, email address, and phone number."
       />
       <Content.Root>
         <Content.UserInfo />

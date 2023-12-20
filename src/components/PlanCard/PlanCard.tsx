@@ -1,9 +1,11 @@
-import { Plan, PlansModes } from '../../constants/plans';
-import getIcon from '../../utils/getIcon';
+import { Plan, PlansModes } from "../../constants/plans";
+import getIcon from "../../utils/getIcon";
 
-import styles from './PlanCard.module.scss';
+import styles from "./PlanCard.module.scss";
 
 interface PlanCardProps extends Plan {
+  handleSelectPlan: (id: number) => void;
+  planMode: PlansModes;
   handleSelectPlan: (id: number) => void;
   planMode: PlansModes;
 }
@@ -15,34 +17,26 @@ const PlanCard = ({
   selected,
   yearPrice,
   planMode,
-  handleSelectPlan,
+  handleSelectPlan
 }: PlanCardProps) => {
   return (
     <div className={styles.container}>
       <div
-        role='button'
+        role="button"
         className={
-          selected
-            ? `${styles['plan-card']} ${styles.selected}`
-            : `${styles['plan-card']}`
+          selected ? `${styles["plan-card"]} ${styles.selected}` : `${styles["plan-card"]}`
         }
         onClick={() => handleSelectPlan(id)}
       >
-        <img
-          className={styles['plan-icon']}
-          src={getIcon(planIcon)}
-          alt={`${planName} icon`}
-        />
-        <div className={styles['text-content']}>
-          <p className={styles['plan-name']}>{planName}</p>
-          {planMode === 'monthly' ? (
-            <p className={styles['plan-price']}>{monthPrice}</p>
+        <img className={styles["plan-icon"]} src={getIcon(planIcon)} alt={`${planName} icon`} />
+        <div className={styles["text-content"]}>
+          <p className={styles["plan-name"]}>{planName}</p>
+          {planMode === "monthly" ? (
+            <p className={styles["plan-price"]}>{monthPrice}</p>
           ) : (
-            <p className={styles['plan-price']}>{yearPrice}</p>
+            <p className={styles["plan-price"]}>{yearPrice}</p>
           )}
-          {planMode === 'yearly' && (
-            <p className={styles['plan-promotion']}>2 months free</p>
-          )}
+          {planMode === "yearly" && <p className={styles["plan-promotion"]}>2 months free</p>}
         </div>
       </div>
     </div>

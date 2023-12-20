@@ -1,21 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 interface ValidationState {
   isButtonDisabled: boolean;
 }
 
 const initialState: ValidationState = {
-  isButtonDisabled: true,
+  isButtonDisabled: true
 };
 
 export const ValidationSlice = createSlice({
-  name: 'validation',
+  name: "validation",
   initialState,
   reducers: {
     setSubmitValidation: (state, action) => {
       state.isButtonDisabled = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export default ValidationSlice.reducer;

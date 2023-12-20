@@ -14,5 +14,21 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "comma-dangle": ["error", "never"],
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "eqeqeq": ["error", "always"],
+    "no-empty": "error",
   },
+
 }

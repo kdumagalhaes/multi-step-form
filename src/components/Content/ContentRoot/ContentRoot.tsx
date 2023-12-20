@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import styles from './ContentRoot.module.scss';
+import { ReactNode } from "react";
+import styles from "./ContentRoot.module.scss";
 
 interface ContentRootProps {
   children: ReactNode;

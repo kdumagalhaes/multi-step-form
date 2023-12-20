@@ -1,8 +1,8 @@
-import { Outlet, useLocation } from 'react-router-dom';
-import { Container } from '../components/Container';
-import { Navigation } from '../components/Navigation';
-import Step from '../components/Step';
-import { Path } from '../constants/pages';
+import { Outlet, useLocation } from "react-router-dom";
+import { Container } from "../components/Container";
+import { Navigation } from "../components/Navigation";
+import Step from "../components/Step";
+import { Path } from "../constants/pages";
 
 const DefaultLayout = () => {
   const { pathname } = useLocation();
@@ -12,25 +12,13 @@ const DefaultLayout = () => {
       <Container.Left>
         <Navigation.Bar>
           <Step
-            stepInfo='Your info'
-            stepNumber='1'
-            isActive={pathname === Path.USER_INFO || pathname === '/'}
+            stepInfo="Your info"
+            stepNumber="1"
+            isActive={pathname === Path.USER_INFO || pathname === "/"}
           />
-          <Step
-            stepInfo='Select plan'
-            stepNumber='2'
-            isActive={pathname === Path.SELECT_PLAN}
-          />
-          <Step
-            stepInfo='Add-ons'
-            stepNumber='3'
-            isActive={pathname === Path.ADD_ONS}
-          />
-          <Step
-            stepInfo='Summary'
-            stepNumber='4'
-            isActive={pathname === Path.SUMMARY}
-          />
+          <Step stepInfo="Select plan" stepNumber="2" isActive={pathname === Path.SELECT_PLAN} />
+          <Step stepInfo="Add-ons" stepNumber="3" isActive={pathname === Path.ADD_ONS} />
+          <Step stepInfo="Summary" stepNumber="4" isActive={pathname === Path.SUMMARY} />
         </Navigation.Bar>
       </Container.Left>
       <Container.Right>
