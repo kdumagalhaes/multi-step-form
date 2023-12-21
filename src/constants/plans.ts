@@ -10,7 +10,7 @@ export enum PlansModes {
 }
 
 export interface Plan {
-  id: number;
+  id: string;
   planName: PlansNames;
   planIcon: PlansNames;
   yearPrice: string;
@@ -20,7 +20,7 @@ export interface Plan {
 
 export const PLANS: Plan[] = [
   {
-    id: 1,
+    id: "c16c6aeeed290415006babae333a79ab4d26aba6",
     planName: PlansNames.ARCADE,
     planIcon: PlansNames.ARCADE,
     yearPrice: "$90/yr",
@@ -28,7 +28,7 @@ export const PLANS: Plan[] = [
     selected: true
   },
   {
-    id: 2,
+    id: "e62854369199d65b6a66cd90fe8203ac4d5be26c",
     planName: PlansNames.ADVANCED,
     planIcon: PlansNames.ADVANCED,
     yearPrice: "$120/yr",
@@ -36,7 +36,7 @@ export const PLANS: Plan[] = [
     selected: false
   },
   {
-    id: 3,
+    id: "3b40f38967952a3fcd286e1c6b5790d84ff40893",
     planName: PlansNames.PRO,
     planIcon: PlansNames.PRO,
     yearPrice: "$150/yr",

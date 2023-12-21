@@ -1,22 +1,26 @@
 import { useState } from "react";
 import Toggle from "../../Toggle";
 import PlanCard from "../../PlanCard";
-import { PLANS, Plan, PlansModes } from "../../../constants/plans";
+import { PLANS, Plan } from "../../../constants/plans";
 import { useAppSelector } from "../../../redux/store";
+import { localStorageKey } from "../../../constants/localStorageKeys";
 
 import styles from "./ContentSelectPlan.module.scss";
-const ContentSelectPlan = () => {
-  const selectedPlan = useAppSelector((state) => state.plan.planMode);
 
-  const planMode = localStorage.getItem("planMode") as PlansModes;
+const ContentSelectPlan = () => {
+  const selectedPlanMode = useAppSelector((state) => state.plan.planMode);
+
+  const planMode = localStorage.getItem(localStorageKey.PLAN_MODE);
+
   const [plansList, setPlansList] = useState<Plan[]>(PLANS);
   const [isClicked, setIsClicked] = useState(planMode === "yearly");
 
-  const handleSelectPlan = (planId: number) => {
+  const handleSelectPlan = (planID: string) => {
     const updatedPlansList = plansList.map((plan) =>
-      plan.id === planId ? { ...plan, selected: true } : { ...plan, selected: false }
+      plan.id === planID  ? { ...plan, selected: true } : { ...plan, selected: false }
     );
     setPlansList(updatedPlansList);
+    localStorage.setItem(localStorageKey.PLAN_TYPE_ID, planID);
   };
 
   return (
@@ -32,8 +36,8 @@ const ContentSelectPlan = () => {
               planName={plan.planName}
               selected={plan.selected}
               yearPrice={plan.yearPrice}
-              planMode={selectedPlan}
-              handleSelectPlan={handleSelectPlan}
+              planMode={selectedPlanMode}
+              handleSelectPlan={() => handleSelectPlan(plan.id)}
             />
           );
         })}
