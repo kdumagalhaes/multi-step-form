@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import Toggle from "../../Toggle";
 import PlanCard from "../../PlanCard";
 import { PLANS, Plan } from "../../../constants/plans";
@@ -6,11 +6,11 @@ import { useAppSelector } from "../../../redux/store";
 import { localStorageKey } from "../../../constants/localStorageKeys";
 
 import styles from "./ContentSelectPlan.module.scss";
+
 const ContentSelectPlan = () => {
   const selectedPlanMode = useAppSelector((state) => state.plan.planMode);
 
   const planMode = localStorage.getItem(localStorageKey.PLAN_MODE);
-  const selectedPlanTypeID = localStorage.getItem(localStorageKey.PLAN_TYPE_ID);
 
   const [plansList, setPlansList] = useState<Plan[]>(PLANS);
   const [isClicked, setIsClicked] = useState(planMode === "yearly");
@@ -22,18 +22,6 @@ const ContentSelectPlan = () => {
     setPlansList(updatedPlansList);
     localStorage.setItem(localStorageKey.PLAN_TYPE_ID, planID);
   };
-
-  const setSelectedPlan = useCallback(() => {
-    const updatedPlansList = plansList.map((plan) =>
-    plan.id === selectedPlanTypeID ? { ...plan, selected: true } : { ...plan, selected: false }
-  );
-    setPlansList(updatedPlansList);
-  }, [selectedPlanTypeID, plansList]);
-
-  useEffect(() => {
-    setSelectedPlan();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedPlanTypeID]);
 
   return (
     <div className={styles.container}>
@@ -49,7 +37,7 @@ const ContentSelectPlan = () => {
               selected={plan.selected}
               yearPrice={plan.yearPrice}
               planMode={selectedPlanMode}
-              handleSelectPlan={handleSelectPlan}
+              handleSelectPlan={() => handleSelectPlan(plan.id)}
             />
           );
         })}

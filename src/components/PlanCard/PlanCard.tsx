@@ -18,6 +18,8 @@ const PlanCard = ({
   planMode,
   handleSelectPlan
 }: PlanCardProps) => {
+
+  
   return (
     <div className={styles.container}>
       <div
