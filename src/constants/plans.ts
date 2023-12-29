@@ -18,6 +18,8 @@ export interface Plan {
   selected: boolean;
 }
 
+export const DEFAULT_SELECTED_PLAN_TYPE_ID = "c16c6aeeed290415006babae333a79ab4d26aba6";
+
 export const PLANS: Plan[] = [
   {
     id: "c16c6aeeed290415006babae333a79ab4d26aba6",
