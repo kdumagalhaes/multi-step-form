@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { ADD_ONS, AddOn } from "../../../constants/addOns";
+import { ADD_ONS } from "../../../constants/addOns";
 import { localStorageKey } from "../../../constants/localStorageKeys";
 import { PlansModes } from "../../../constants/plans";
 import AddOnSelector from "../../AddOnSelector";
