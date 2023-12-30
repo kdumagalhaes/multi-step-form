@@ -1,4 +1,4 @@
-export interface AddOns {
+export interface AddOn {
   id: string;
   title: string;
   description: string;
@@ -6,7 +6,7 @@ export interface AddOns {
   monthPrice: string;
 }
 
-export const ADD_ONS: AddOns[] = [
+export const ADD_ONS: AddOn[] = [
   {
     id: "2dbc2fd2358e1ea1b7a6bc08ea647b9a337ac92d",
     title: "Online service",

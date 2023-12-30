@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { AddOns } from "../../constants/addOns";
+import { AddOn } from "../../constants/addOns";
 import { PlansModes } from "../../constants/plans";
 import styles from "./AddOnSelector.module.scss";
 
-interface AddOnSelectorProps extends AddOns {
+interface AddOnSelectorProps extends AddOn {
   planMode: PlansModes;
+  selectAddOn: (id: string) => void
 }
 const AddOnSelector = ({
   planMode,
@@ -12,12 +13,19 @@ const AddOnSelector = ({
   title,
   description,
   yearPrice,
-  monthPrice
+  monthPrice,
+  selectAddOn
 }: AddOnSelectorProps) => {
   const [isChecked, setIsChecked] = useState(false);
+
+  const handleAddOnClick = (id: string) => {
+    setIsChecked(!isChecked);
+    selectAddOn(id);
+  };
+
   return (
     <div
-      onClick={() => setIsChecked(!isChecked)}
+      onClick={() => handleAddOnClick(id)}
       key={id}
       className={isChecked ? `${styles.selector} ${styles.selected}` : `${styles.selector}`}
     >
