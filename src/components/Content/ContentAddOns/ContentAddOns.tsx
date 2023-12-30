@@ -9,16 +9,19 @@ const ContentAddOns = () => {
   
   const [updatedAddOnsIDList, setUpdatedAddOnsIDList] = useState<string[]>([]);
 
-  const handleSelectAddOns = useCallback( (addOnID: string) => {
-    const isAddOnIDincluded = updatedAddOnsIDList.includes(addOnID);
+  const isAddOnIDincluded = (list: string[],id: string) => {
+    return list.includes(id);
+  };
 
-    const updatedIDList = isAddOnIDincluded 
+  const handleSelectAddOns = useCallback( (addOnID: string) => {
+    const updatedIDList = isAddOnIDincluded(updatedAddOnsIDList, addOnID) 
     ? updatedAddOnsIDList.filter((id) => id !== addOnID) 
     :  [...updatedAddOnsIDList, addOnID];
 
     setUpdatedAddOnsIDList(updatedIDList);
     localStorage.setItem(localStorageKey.ADD_ONS, JSON.stringify(updatedIDList));
   }, [updatedAddOnsIDList]);
+
 
   return (
     <div>
