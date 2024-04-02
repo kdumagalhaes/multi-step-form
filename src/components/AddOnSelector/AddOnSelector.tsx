@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AddOn } from "../../constants/addOns";
 import { PlansModes } from "../../constants/plans";
 import styles from "./AddOnSelector.module.scss";
+import priceConverter from "../../utils/priceConverter";
 
 interface AddOnSelectorProps extends AddOn {
   planMode: PlansModes;
@@ -48,9 +49,9 @@ const AddOnSelector = ({
         <p className={styles.description}>{description}</p>
       </div>
       {planMode === "monthly" ? (
-        <p className={styles["plan-price"]}>{monthPrice}</p>
+        <p className={styles["plan-price"]}>{`+${priceConverter(monthPrice, PlansModes.MONTHLY)}`}</p>
       ) : (
-        <p className={styles["plan-price"]}>{yearPrice}</p>
+        <p className={styles["plan-price"]}>{`+${priceConverter(yearPrice, PlansModes.YEARLY)}`}</p>
       )}
     </div>
   );
