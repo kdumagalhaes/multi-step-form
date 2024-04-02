@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import { ADD_ONS } from "../../../constants/addOns";
+import { useEffect, useState } from "react";
+import { ADD_ONS, AddOn } from "../../../constants/addOns";
 import { localStorageKey } from "../../../constants/localStorageKeys";
 import { PlansModes } from "../../../constants/plans";
 import AddOnSelector from "../../AddOnSelector";
@@ -7,25 +7,42 @@ import AddOnSelector from "../../AddOnSelector";
 const ContentAddOns = () => {
   const selectedPlan = localStorage.getItem(localStorageKey.PLAN_MODE) as PlansModes;
   
+  const [addOnsList, setAddOnsList] = useState<AddOn[]>(ADD_ONS);
   const [updatedAddOnsIDList, setUpdatedAddOnsIDList] = useState<string[]>([]);
 
-  const isAddOnIDincluded = (list: string[],id: string) => {
+  const isAddOnIDincluded = (list: string[], id: string) => {
     return list.includes(id);
   };
 
-  const handleSelectAddOns = useCallback( (addOnID: string) => {
+  const handleSelectAddOns =  (addOnID: string) => {
     const updatedIDList = isAddOnIDincluded(updatedAddOnsIDList, addOnID) 
     ? updatedAddOnsIDList.filter((id) => id !== addOnID) 
     :  [...updatedAddOnsIDList, addOnID];
 
     setUpdatedAddOnsIDList(updatedIDList);
     localStorage.setItem(localStorageKey.ADD_ONS, JSON.stringify(updatedIDList));
-  }, [updatedAddOnsIDList]);
+
+    const updatedAddOnsList = addOnsList.map((addOn) =>
+      addOn.id === addOnID ? { ...addOn, selected: !addOn.selected } : addOn
+  );
+
+    setAddOnsList(updatedAddOnsList);
+  };
+
+  useEffect(() => {
+    const currentSelectedAddOnsIDs = localStorage.getItem(localStorageKey.ADD_ONS);
+    const storedAddOns = currentSelectedAddOnsIDs 
+    ? JSON.parse(currentSelectedAddOnsIDs) 
+    : [];
+
+    setUpdatedAddOnsIDList(storedAddOns);
+
+  }, []);
 
 
   return (
     <div>
-      {ADD_ONS.map((addOn) => {
+      {addOnsList.map((addOn) => {
         return (
           <AddOnSelector
             key={addOn.id}
@@ -35,6 +52,7 @@ const ContentAddOns = () => {
             monthPrice={addOn.monthPrice}
             yearPrice={addOn.yearPrice}
             planMode={selectedPlan}
+            selected={updatedAddOnsIDList.includes(addOn.id)}
             selectAddOn={handleSelectAddOns}
           />
         );
