@@ -5,7 +5,7 @@ const priceConverter = (price: number, planMode: PlansModes) => {
     case PlansModes.MONTHLY:
       return `$${price}/mo`;
     case PlansModes.YEARLY:
-    return `$${price}/yr`;
+      return `$${price}/yr`;
     default:
       break;
   }
