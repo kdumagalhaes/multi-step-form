@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AddOn } from "../../constants/addOns";
 import { PlansModes } from "../../constants/plans";
 import styles from "./AddOnSelector.module.scss";
@@ -14,6 +14,7 @@ const AddOnSelector = ({
   description,
   yearPrice,
   monthPrice,
+  selected,
   selectAddOn
 }: AddOnSelectorProps) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -22,6 +23,11 @@ const AddOnSelector = ({
     setIsChecked(!isChecked);
     selectAddOn(id);
   };
+
+  useEffect(() => {
+    setIsChecked(selected);
+  }, [selected]);
+
 
   return (
     <div

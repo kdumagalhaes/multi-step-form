@@ -17,8 +17,8 @@
   .input {
     margin-right: 1rem;
     position: relative;
-	  cursor: pointer;
-    
+    cursor: pointer;
+
     &::before {
       border-radius: 4px;
       content: "";
@@ -29,13 +29,13 @@
       top: -2px;
       left: -4px;
     }
-    
+
     &::before {
       background-color: $light-gray;
     }
 
     &:checked::before {
-      background-color:$purplish-blue;
+      background-color: $purplish-blue;
     }
 
     &:checked::after {
