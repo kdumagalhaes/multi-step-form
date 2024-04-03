@@ -12,8 +12,6 @@ export const ADD_ONS: AddOn[] = [
     id: "2dbc2fd2358e1ea1b7a6bc08ea647b9a337ac92d",
     title: "Online service",
     description: "Access to multiplayer games",
-    // monthPrice: "+$1/mo",
-    // yearPrice: "+10/yr",
     monthPrice: 1,
     yearPrice: 10,
     selected: false
