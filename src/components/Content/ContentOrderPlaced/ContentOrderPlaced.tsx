@@ -1,7 +1,15 @@
 import Confetti from "react-confetti";
 import ThankYouIcon from "../../../assets/icons/icon-thank-you.svg";
 import styles from "./ContentOrderPlaced.module.scss";
+import { useEffect } from "react";
 const ContentOrderPlaced = () => {
+
+  useEffect(() => {
+    return () => {
+      localStorage.clear();
+    };
+  }, []);
+
   return (
     <>
       <Confetti recycle={false}/>
