@@ -28,6 +28,7 @@ const ContentUserInfo = () => {
         placeholder="e.g. Stephen King"
         onChange={(e) => setInputName(e.target.value)}
         autoFocus
+        autoComplete="off"
       />
       <label className={styles.label} htmlFor="email">
         Email address
@@ -38,6 +39,7 @@ const ContentUserInfo = () => {
         type="email"
         placeholder="e.g. stephenking@lorem.com"
         onChange={(e) => setInputEmail(e.target.value)}
+        autoComplete="off"
       />
       <label className={styles.label} htmlFor="phone">
         Phone number
@@ -48,6 +50,7 @@ const ContentUserInfo = () => {
         type="number"
         placeholder="e.g. +1 234 567 890"
         onChange={(e) => setInputPhone(e.target.value)}
+        autoComplete="off"
       />
     </>
   );
