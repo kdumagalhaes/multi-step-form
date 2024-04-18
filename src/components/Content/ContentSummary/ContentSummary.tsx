@@ -18,8 +18,9 @@ interface SelectedAddOns {
 const ContentSummary = () => {
   const dispatch = useAppDispatch();
   const selectedPlan = useAppSelector((state) => state.plan.planMode);
-  const [planPrice, setPlanPrice] = useState<number>(0);
+  const [planPrice, setPlanPrice] = useState(0);
   const [addOnsList, setAddOnsList] = useState<SelectedAddOns[] | []>([]);
+  const [total, setTotal] = useState(0);
 
   const planModeName = `${selectedPlan.charAt(0).toUpperCase()}${selectedPlan.slice(1)}`;
 
@@ -61,6 +62,11 @@ const ContentSummary = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPlan]);
 
+  useEffect(() => {
+    const addOnsTotal = addOnsList.reduce((acc, addOn) => acc + addOn.price, 0);
+    setTotal(planPrice + addOnsTotal);
+  }, [planPrice, addOnsList]);
+
   return (
     <>
       <div className={styles.summary}>
@@ -89,7 +95,7 @@ const ContentSummary = () => {
       </div>
       <div className={styles.total}>
         <p className={styles["total-mode"]}>Total (per month)</p>
-        <p className={styles["total-price"]}>+$12/mo</p>
+        <p className={styles["total-price"]}>{priceConverter(total, selectedPlan)}</p>
       </div>
     </>
   );
