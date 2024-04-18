@@ -1,12 +1,23 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { Path } from "../constants/pages";
+import { useAppSelector } from "../redux/store";
+import { useEffect } from "react";
 import DefaultLayout from "../layouts/DefaultLayout";
 import UserInfo from "../pages/UserInfo";
 import SelectPlan from "../pages/SelectPlan";
 import AddOns from "../pages/AddOns";
 import Summary from "../pages/Summary/Summary";
 import OrderPlaced from "../pages/OrderPlaced/OrderPlaced";
-import { Path } from "../constants/pages";
 export function Router() {
+  const isUserInvalid = useAppSelector((state) => state.validation.isButtonDisabled);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isUserInvalid) {
+      navigate("/", { replace: true });
+    }
+  }, [isUserInvalid, navigate]);
+
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
