@@ -2,7 +2,7 @@
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import { describe, it, vi, expect } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Toggle, { ToggleProps } from "./Toggle";
 
 const MockToggle = ({onClick, toggled}: ToggleProps) => {
