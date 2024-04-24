@@ -1,9 +1,9 @@
 import { memo, useEffect, useState } from "react";
-import styles from "./Toggle.module.scss";
 import { useAppDispatch } from "../../redux/store";
 import { setTogglePlan } from "../../redux/reducers/plan";
 
-interface ToggleProps {
+import styles from "./Toggle.module.scss";
+export interface ToggleProps {
   onClick: (isToggled: boolean) => void;
   toggled: boolean;
 }
