@@ -11,6 +11,7 @@
     "format": "prettier --write \"src/**/*.+(ts|tsx|json|html)\"",
     "prepare": "husky install",
     "test": "vitest",
+    "test:no-watch": "vitest run",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
