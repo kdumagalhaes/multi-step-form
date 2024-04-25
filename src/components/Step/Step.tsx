@@ -9,12 +9,17 @@ interface StepProps {
 const Step = memo(({ stepNumber, stepInfo, isActive = false }: StepProps) => {
   return (
     <div className={styles.step}>
-      <div className={isActive ? `${styles.number} ${styles["number-active"]}` : styles.number}>
+      <div 
+        data-testid="step-number" 
+        className={isActive ? 
+          `${styles.number} ${styles["number-active"]}` 
+          : styles.number}
+      >
         {stepNumber}
       </div>
       <div className={styles["text-container"]}>
-        <p className={styles.indication}>step {stepNumber}</p>
-        <p className={styles.info}>{stepInfo}</p>
+        <p data-testid="step-indication" className={styles.indication}>step {stepNumber}</p>
+        <p data-testid="step-info" className={styles.info}>{stepInfo}</p>
       </div>
     </div>
   );
