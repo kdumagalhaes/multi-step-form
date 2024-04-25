@@ -32,13 +32,26 @@ const PlanCard = ({
       >
         <img className={styles["plan-icon"]} src={getIcon(planIcon)} alt={`${planName} icon`} />
         <div className={styles["text-content"]}>
-          <p className={styles["plan-name"]}>{planName}</p>
+          <p data-testid="plan-card-name" className={styles["plan-name"]}>{planName}</p>
           {planMode === "monthly" ? (
-            <p className={styles["plan-price"]}>{priceConverter(monthPrice, PlansModes.MONTHLY)}</p>
+            <p 
+              data-testid="plan-card-monthly-price" 
+              className={styles["plan-price"]}>
+               {priceConverter(monthPrice, PlansModes.MONTHLY)}
+            </p>
           ) : (
-            <p className={styles["plan-price"]}>{priceConverter(yearPrice, PlansModes.YEARLY)}</p>
+            <p 
+              data-testid="plan-card-yearly-price" 
+              className={styles["plan-price"]}>
+                {priceConverter(yearPrice, PlansModes.YEARLY)}
+              </p>
           )}
-          {planMode === "yearly" && <p className={styles["plan-promotion"]}>2 months free</p>}
+          {planMode === "yearly" 
+          && <p 
+              data-testid="plan-card-promotion" 
+              className={styles["plan-promotion"]}>
+                2 months free
+             </p>}
         </div>
       </div>
     </div>
