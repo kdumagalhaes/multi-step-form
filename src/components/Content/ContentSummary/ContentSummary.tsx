@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { localStorageKey } from "../../../constants/localStorageKeys";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
-import { PlansModes } from "../../../constants/plans";
+import priceConverter from "../../../utils/priceConverter";
+import { PlansModes, PlansNames } from "../../../constants/plans";
 import { setTogglePlan } from "../../../redux/reducers/plan";
 import { ADD_ONS } from "../../../constants/addOns";
 import { PLANS } from "../../../constants/plans";
 
 import styles from "./ContentSummary.module.scss";
-import priceConverter from "../../../utils/priceConverter";
 
 interface SelectedAddOns {
   id: string
@@ -15,10 +15,18 @@ interface SelectedAddOns {
   title: string
 }
 
+interface PlanInfo {
+  planName: PlansNames,
+  planPrice: number
+}
+
 const ContentSummary = () => {
   const dispatch = useAppDispatch();
   const selectedPlan = useAppSelector((state) => state.plan.planMode);
-  const [planPrice, setPlanPrice] = useState(0);
+  const [planInfo, setPlanInfo] = useState<PlanInfo>({
+    planName: PlansNames.ADVANCED,
+    planPrice: 0
+  });
   const [addOnsList, setAddOnsList] = useState<SelectedAddOns[] | []>([]);
   const [total, setTotal] = useState(0);
 
@@ -35,13 +43,19 @@ const ContentSummary = () => {
 
     switch (selectedPlan) {
       case PlansModes.MONTHLY:
-        setPlanPrice(PLANS.find((plan) => plan?.id === planTypeID)?.monthPrice as number);
+        setPlanInfo({
+          planPrice: PLANS.find((plan) => plan?.id === planTypeID)?.monthPrice as number,
+          planName: PLANS.find((plan) => plan?.id === planTypeID)?.planName as PlansNames
+        });
         setAddOnsList(filteredAddOns.map(({ id, monthPrice, title }) => {
           return { id, price: monthPrice, title };
         }));
         break;
       case PlansModes.YEARLY:
-        setPlanPrice(PLANS.find((plan) => plan?.id === planTypeID)?.yearPrice as number);
+        setPlanInfo({
+          planPrice: PLANS.find((plan) => plan?.id === planTypeID)?.yearPrice as number,
+          planName: PLANS.find((plan) => plan?.id === planTypeID)?.planName as PlansNames
+        });
         setAddOnsList(filteredAddOns.map(({ id, yearPrice, title }) => {
           return { id, price: yearPrice, title };
         }));
@@ -64,20 +78,20 @@ const ContentSummary = () => {
 
   useEffect(() => {
     const addOnsTotal = addOnsList.reduce((acc, addOn) => acc + addOn.price, 0);
-    setTotal(planPrice + addOnsTotal);
-  }, [planPrice, addOnsList]);
+    setTotal(planInfo.planPrice + addOnsTotal);
+  }, [planInfo.planPrice, addOnsList]);
 
   return (
     <>
       <div className={styles.summary}>
         <div className={styles["selected-plan"]}>
           <div className={styles["plan-title"]}>
-            <p className={styles["plan-name"]}>{`Arcade (${planModeName})`}</p>
+            <p className={styles["plan-name"]}>{`${planInfo.planName} (${planModeName})`}</p>
             <a onClick={handleChangePlanModeClick} role="button" className={styles["plan-mode"]}>
               Change
             </a>
           </div>
-          <p className={styles["plan-price"]}>{priceConverter(planPrice, selectedPlan)}</p>
+          <p className={styles["plan-price"]}>{priceConverter(planInfo.planPrice, selectedPlan)}</p>
         </div>
 
         <ul className={styles["item-list"]}>
