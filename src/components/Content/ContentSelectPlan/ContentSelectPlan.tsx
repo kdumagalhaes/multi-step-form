@@ -2,7 +2,7 @@ import { useState } from "react";
 import Toggle from "../../Toggle";
 import PlanCard from "../../PlanCard";
 import { useAppSelector } from "../../../redux/store";
-import usePlansList from "../../../hooks/index";
+import usePlansList from "../../../hooks/usePlansList";
 import { localStorageKey } from "../../../constants/localStorageKeys";
 
 import styles from "./ContentSelectPlan.module.scss";
