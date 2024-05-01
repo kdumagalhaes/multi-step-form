@@ -25,31 +25,39 @@ const useCheckout = () => {
   const [total, setTotal] = useState(0);
 
   const handleCheckout = (planTypeID: string, addOnsIDsList: string[]) => {
-    const filteredAddOns = ADD_ONS.filter((addOn) => addOnsIDsList.includes(addOn.id));
-
+    const selectedPlanDetails = PLANS.find(plan => plan?.id === planTypeID);
+    
+    if (!selectedPlanDetails) {
+      console.error("Selected plan details not found");
+      return;
+    }
+  
+    const filteredAddOns = ADD_ONS.filter(addOn => addOnsIDsList.includes(addOn.id));
+  
+    let planPrice;
     switch (selectedPlan) {
       case PlansModes.MONTHLY:
-        setPlanInfo({
-          planPrice: PLANS.find((plan) => plan?.id === planTypeID)?.monthPrice as number,
-          planName: PLANS.find((plan) => plan?.id === planTypeID)?.planName as PlansNames
-        });
-        setAddOnsList(filteredAddOns.map(({ id, monthPrice, title }) => {
-          return { id, price: monthPrice, title };
-        }));
+        planPrice = selectedPlanDetails.monthPrice;
         break;
       case PlansModes.YEARLY:
-        setPlanInfo({
-          planPrice: PLANS.find((plan) => plan?.id === planTypeID)?.yearPrice as number,
-          planName: PLANS.find((plan) => plan?.id === planTypeID)?.planName as PlansNames
-        });
-        setAddOnsList(filteredAddOns.map(({ id, yearPrice, title }) => {
-          return { id, price: yearPrice, title };
-        }));
-      break;
-      default:
+        planPrice = selectedPlanDetails.yearPrice;
         break;
+      default:
+        console.error("Invalid plan mode");
+        return;
     }
+  
+    setPlanInfo({
+      planPrice,
+      planName: selectedPlanDetails.planName as PlansNames
+    });
+  
+    setAddOnsList(filteredAddOns.map(({ id, monthPrice, yearPrice, title }) => {
+      const price = selectedPlan === PlansModes.MONTHLY ? monthPrice : yearPrice;
+      return { id, price, title };
+    }));
   };
+  
 
   useEffect(() => {
     const storedPlanID = localStorage.getItem(localStorageKey.PLAN_TYPE_ID) as string;
